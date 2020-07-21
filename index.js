@@ -521,7 +521,7 @@ exports.connect = function(config, intern, callback) {
     host = config.host + ':' + port;
   }
 
-  var mongoString = 'mongodb://';
+  var mongoString = config.protocol ? `${config.protocol}://` : 'mongodb://';
 
   if(config.user !== undefined && config.password !== undefined) {
     // Ensure user and password can contain special characters like "@" so app doesn't throw an exception when connecting to MongoDB
